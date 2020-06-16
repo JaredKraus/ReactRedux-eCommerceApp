@@ -13,7 +13,7 @@ const Directory = props => {
           style={{backgroundImage: `url(${ShopWomen})`}}
           className="item"
         >
-          <a>Shop Women</a>
+          <a>Shop Womens</a>
         </div>
 
         <div
