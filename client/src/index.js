@@ -1,11 +1,18 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { BrowserRouter } from 'react-router-dom'
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware, compose } from 'redux';
+import logger from 'redux-logger'
+
 import App from './App';
+import reducers from './redux/reducers/reducers';
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(reducers, composeEnhancers(applyMiddleware(logger)))
 
 ReactDOM.render(
-  <BrowserRouter>
+  <Provider store={store}>
     <App />
-  </BrowserRouter>,
+  </Provider>,
   document.getElementById('root')
 )
